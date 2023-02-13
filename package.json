@@ -11,9 +11,8 @@
     "changelog": "conventional-changelog -p custom-config-2 -i CHANGELOG.md -s -r 0",
     "commit": "npx git-cz",
     "release": "sh ./build/tag.sh",
-    "serve:test": "cross-env DEPLOY_ENV=webpack PROXY_ENV=DEV PROXY_ENV_DEV=test vue-cli-service serve",
-    "serve:dev": "cross-env DEPLOY_ENV=webpack PROXY_ENV=DEV PROXY_ENV_DEV=intern vue-cli-service serve",
-    "serve:local": "cross-env PROXY_ENV=LOCAL vue-cli-service serve",
+    "serve:test": "cross-env DEPLOY_ENV=webpack PROXY_ENV=test vue-cli-service serve",
+    "serve:dev": "cross-env DEPLOY_ENV=webpack PROXY_ENV=dev vue-cli-service serve",
     "online": "cross-env PROXY_ENV=ONLINE vue-cli-service serve",
     "test": "jest",
     "build": "cross-env DEPLOY_ENV=production vue-cli-service build"

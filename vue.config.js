@@ -2,10 +2,9 @@ const webpack = require("webpack");
 const path = require("path");
 const url = require("url");
 const { getModifyVars } = require("./src/ndsc-vue3/style/lib/var");
-const { ENV_HOST } = require("./env");
+const { DOMAIN } = require("./env");
 const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
-const ENV = process.env.PROXY_ENV || "DEV";
-const DEVENV = process.env.PROXY_ENV_DEV || "intern";
+const ENV = process.env.PROXY_ENV || "dev";
 const isDev = process.env.DEPLOY_ENV !== "production";
 
 const DEFAULT_PATH = { "^/api": "/" };
@@ -27,7 +26,7 @@ module.exports = {
       type: "javascript/auto",
     });
 
-    ENV === "DEV" && (config.devtool = "source-map");
+    ENV === "dev" && (config.devtool = "source-map");
 
     config.resolve.alias.hooks = path.resolve(__dirname, "src/utils/hooks");
     config.resolve.symlinks = false;
@@ -37,7 +36,7 @@ module.exports = {
     config.plugins.push(
       new webpack.DefinePlugin({
         env: JSON.stringify(process.env.PROXY_ENV),
-        DEVENV: JSON.stringify(ENV_HOST[ENV](DEVENV)),
+        DEVENV: JSON.stringify(DOMAIN[ENV]),
       })
     );
 
@@ -116,7 +115,7 @@ module.exports = {
     open: true,
     proxy: {
       "/api/login": {
-        target: ENV_HOST[ENV](DEVENV),
+        target: DOMAIN[ENV],
         changeOrigin: true,
         onProxyRes(proxyRes, req) {
           const serveHost = req.headers.host;
@@ -139,7 +138,7 @@ module.exports = {
         pathRewrite: process.env.PROXY_ENV === "LOCAL" ? DEFAULT_PATH : {},
       },
       "/api": {
-        target: ENV_HOST[ENV](DEVENV),
+        target: DOMAIN[ENV],
         changeOrigin: true,
         pathRewrite: process.env.PROXY_ENV === "LOCAL" ? DEFAULT_PATH : {},
       },

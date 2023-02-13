@@ -65,6 +65,9 @@ nvm install --lts
 npm install -g yarn
 ```
 
+## Before Start
+
+本地进行开发时，需要先配置 env.js 文件内的 DEV_DOMAIN 域名映射
 
 ## How to start
 

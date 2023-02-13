@@ -1,17 +1,10 @@
-const DEV_DOMAIN = {
+const DOMAIN = {
   // 开发环境域名
-  intern: "",
+  dev: "",
   // 测试环境域名
   test: "",
+  // 线上环境域名
+  online: "",
 };
 
-const ENV_HOST = {
-  DEV: (env) => DEV_DOMAIN[env],
-  // 线上真实域名地址
-  ONLINE: () => "",
-};
-
-module.exports = {
-  ENV_HOST,
-  DEV_DOMAIN,
-};
+module.exports = { DOMAIN };
