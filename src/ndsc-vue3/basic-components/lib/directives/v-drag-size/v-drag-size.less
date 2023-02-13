@@ -1,0 +1,42 @@
+.v-drag-size-anchor {
+  position: absolute;
+  z-index: 999;
+  width: 10px;
+  height: 28px;
+  background-color: #e0e2e6;
+  border-radius: 2px;
+  &::before {
+    content: '';
+    width: 2px;
+    height: 2px;
+    display: block;
+    position: absolute;
+    box-shadow: 4px 8px 0 #4e5973, 4px 13px 0 #4e5973, 4px 18px 0 #4e5973;
+    border-radius: 50%;
+  }
+  &__left,
+  &__right {
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: ew-resize;
+  }
+  &__top,
+  &__bottom {
+    left: 50%;
+    transform: translateX(-50%);
+    transform: rotate(90deg);
+    cursor: ns-resize;
+  }
+  &__left {
+    left: -5px;
+  }
+  &__right {
+    right: -5px;
+  }
+  &__top {
+    top: -14px;
+  }
+  &__bottom {
+    bottom: -14px;
+  }
+}

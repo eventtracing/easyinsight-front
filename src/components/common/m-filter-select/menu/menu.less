@@ -1,0 +1,47 @@
+@hover-color: #e6efff;
+
+.mm-menu {
+  min-width: 140px;
+  width: auto;
+  max-width: 400px;
+  max-height: 330px;
+  padding: 4px 0;
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  z-index: 1050;
+  overflow-y: auto;
+  .mm-menu-item {
+    height: 32px;
+    line-height: 32px;
+    padding: 0 20px 0 10px;
+    color: @text-color;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    word-wrap: normal;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    text-align: left;
+    &:not(.disabled):hover {
+      background-color: @hover-color;
+    }
+    &.selected:not(.hover) {
+      font-weight: 600;
+      background-color: #fafafa;
+      padding-right: 32px;
+    }
+    .anticon-check {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: @primary-color;
+    }
+  }
+  .ant-divider-horizontal,
+  .ant-divider {
+    margin: 0;
+  }
+}

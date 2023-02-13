@@ -1,0 +1,37 @@
+.make-padding(@size) {
+  &-p-@{size} {
+    padding: ~'@{size}px';
+  }
+  &-p-lr {
+    &-@{size} {
+      padding-left: ~'@{size}px';
+      padding-right: ~'@{size}px';
+    }
+  }
+  &-p-tb {
+    &-@{size} {
+      padding-top: ~'@{size}px';
+      padding-bottom: ~'@{size}px';
+    }
+  }
+  &-pl-@{size} {
+    padding-left: ~'@{size}px';
+  }
+  &-pt-@{size} {
+    padding-top: ~'@{size}px';
+  }
+  &-pr-@{size} {
+    padding-right: ~'@{size}px';
+  }
+  &-pb-@{size} {
+    padding-bottom: ~'@{size}px';
+  }
+}
+
+.g {
+  .make-padding(4);
+  .make-padding(8);
+  .make-padding(12);
+  .make-padding(16);
+  .make-padding(24);
+}

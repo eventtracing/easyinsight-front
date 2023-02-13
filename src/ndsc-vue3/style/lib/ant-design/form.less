@@ -1,0 +1,31 @@
+.ant-form-horizontal {
+  .ant-form-item {
+    margin-bottom: 20px;
+    &-label {
+      text-align: left !important;
+      margin-left: -10px;
+      & > label {
+        margin-left: 10px;
+      }
+    }
+
+    &-required {
+      &::before {
+        position: absolute;
+        left: -10px;
+        top: 1px;
+      }
+    }
+
+    .ant-alert {
+      font-size: 12px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      border-color: transparent;
+
+      .ant-alert-icon {
+        top: 8px;
+      }
+    }
+  }
+}

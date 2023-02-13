@@ -1,0 +1,53 @@
+.mm-theme-dark,
+.mm-theme-light,
+.mm-theme-purple {
+  --primary-color: @primary-color;
+  --link-color: @link-color;
+  --info-color: @info-color;
+  --error-color: @error-color;
+  --disabled-color: @disabled-color;
+  --text-color-secondary: @text-color-secondary;
+  --border-color-base: @border-color-base;
+  --shadow-color: @shadow-color;
+  --item-hover-bg: @item-hover-bg;
+
+  // 仅供demo使用，正常项目中会去掉按需加载等
+
+  .ant-btn {
+    color: @primary-color;
+    border-color: @primary-color;
+  }
+  .ant-btn-primary {
+    color: #ffffff;
+    background-color: @primary-color;
+  }
+  .ant-btn-link {
+    border-color: transparent;
+  }
+  .ant-btn-danger {
+    background-color: @error-color;
+    color: #ffffff;
+    border-color: @error-color;
+  }
+  .ant-btn-primary:hover,
+  .ant-btn-primary:focus {
+    background-color: @primary-color;
+    border-color: @primary-color;
+  }
+
+  .ant-input:hover {
+    border-color: @primary-color;
+  }
+  .ant-radio-checked::after {
+    border: 1px solid @primary-color;
+  }
+  .ant-radio-checked .ant-radio-inner {
+    border-color: @primary-color;
+  }
+  .ant-radio-inner::after {
+    background-color: @primary-color;
+  }
+  .ant-switch-checked {
+    background-color: @primary-color;
+  }
+}

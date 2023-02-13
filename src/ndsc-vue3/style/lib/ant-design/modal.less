@@ -1,0 +1,21 @@
+@import '../var.less';
+
+.ant-modal-root{
+  .ant-modal-footer{
+    .ant-btn{
+      padding: 0 17px;
+      &:not(.ant-btn-primary){
+        border-color: @border-color-split;
+        color: @text-color;
+      }
+    }
+  }
+  &.ant-modal-confirm{
+    .ant-modal-body{
+      padding: 24px 16px 16px 24px;
+    }
+    .ant-modal-confirm-btns{
+      .ant-modal-footer()
+    }
+  }
+}

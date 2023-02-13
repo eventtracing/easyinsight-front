@@ -1,0 +1,68 @@
+@import './var.less';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+input[type='checkbox'] {
+  padding: 0;
+  touch-action: manipulation;
+}
+
+input,
+button,
+select,
+optgroup,
+textarea {
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+}
+
+.m-topbar,
+.m-topbar-dropdown {
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  a, a:focus {
+    text-decoration: none;
+  }
+  a.a-link, a.spa-link {
+    display: block;
+    padding: 0 10px;
+    color: @topbar-text-color !important;
+    &:not(.disabled):hover {
+      color: @topbar-text-hover-color !important;
+    }
+
+    &.active, &.router-link-active {
+      color: @topbar-text-hover-color !important;
+    }
+
+    &.disabled {
+      pointer-events: none;
+    }
+  }
+}
+
+.topbar-tooltip .ant-tooltip-content {
+  .ant-tooltip-arrow::before {
+    background: #3a3e50 !important;
+  }
+  .ant-tooltip-inner {
+    font-size: 12px !important;
+    padding: 5px 8px !important;
+    border-radius: 2px !important;
+    line-height: 1.5 !important;
+    min-height: auto !important;
+    background: #3a3e50 !important;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16) !important;
+  }
+}

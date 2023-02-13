@@ -1,0 +1,31 @@
+{
+  "name": "@/ndsc-vue3/style",
+  "version": "1.3.4",
+  "description": "the package of shared style",
+  "keywords": [
+    "style",
+    "less",
+    "css"
+  ],
+  "license": "MIT",
+  "main": "lib/index.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "devDependencies": {
+    "rollup": "^2.10.2",
+    "eslint": "^6.7.2"
+  }
+}

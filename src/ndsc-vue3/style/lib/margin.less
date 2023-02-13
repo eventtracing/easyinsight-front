@@ -1,0 +1,37 @@
+.make-margin(@size) {
+  &-m-@{size} {
+    margin: ~'@{size}px';
+  }
+  &-m-lr {
+    &-@{size} {
+      margin-left: ~'@{size}px';
+      margin-right: ~'@{size}px';
+    }
+  }
+  &-m-tb {
+    &-@{size} {
+      margin-top: ~'@{size}px';
+      margin-bottom: ~'@{size}px';
+    }
+  }
+  &-ml-@{size} {
+    margin-left: ~'@{size}px';
+  }
+  &-mt-@{size} {
+    margin-top: ~'@{size}px';
+  }
+  &-mr-@{size} {
+    margin-right: ~'@{size}px';
+  }
+  &-mb-@{size} {
+    margin-bottom: ~'@{size}px';
+  }
+}
+
+.g {
+  .make-margin(4);
+  .make-margin(8);
+  .make-margin(12);
+  .make-margin(16);
+  .make-margin(24);
+}

@@ -1,0 +1,92 @@
+.mm-select {
+  display: inline-block;
+}
+
+.ant-dropdown:before {
+  display: none;
+}
+
+.mm-filter-tribox {
+  width: 100%;
+  position: relative;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  line-height: 30px;
+  &.show-border {
+    border: 1px solid #d9d9d9;
+  }
+  &.focus:not(.disabled) {
+    border: 1px solid #3867ff;
+    box-shadow: 0 0 0 2px  rgba(24, 144, 255, 0.2);
+    .icon-close {
+      display: block;
+    }
+
+    .hide-icon-down{
+      display: none;
+    }
+  }
+  &:hover:not(.disabled) {
+    border: 1px solid #3867ff;
+    box-shadow: none;
+    .icon-close {
+      display: block;
+    }
+    .hide-icon-down{
+      display: none;
+    }
+  }
+
+  &.disabled {
+    background: #f2f2f5;
+    cursor: not-allowed;
+    user-select: none;
+    .filter-input {
+      color: #a9a9b8;
+      background: #f2f2f5;
+      pointer-events: none;
+    }
+  }
+
+  .filter-input {
+    padding: 0 32px 0 8px;
+    height: 30px;
+    line-height: 30px;
+    border: none;
+    transition: width 0.3s;
+  }
+
+  .icon-close {
+    display: none;
+    position: absolute;
+    cursor: pointer;
+    right: 10px;
+    top: 9px;
+    color: #999;
+    font-size: 12px;
+  }
+  .icon-down {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 9px;
+    font-size: 12px;
+  }
+}
+
+.has-error .mm-filter-tribox {
+  margin: 4px 0;
+}
+
+.has-error .mm-filter-tribox:focus {
+  border-color: #ff757c !important;
+  border-right-width: 1px !important;
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 2px rgb(242 73 87 / 20%) !important;
+  box-shadow: 0 0 0 2px rgb(242 73 87 / 20%) !important;
+}
+
+.has-error .mm-filter-tribox, .has-error .mm-filter-tribox:hover {
+  background-color: #fff;
+  border: 1px solid #f24957 !important;
+}

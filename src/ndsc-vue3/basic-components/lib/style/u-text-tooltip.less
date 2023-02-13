@@ -1,0 +1,32 @@
+.u-text-tooltip.ant-tooltip {
+  max-width: 500px;
+  .ant-tooltip-arrow {
+    display: none;
+  }
+  .ant-tooltip-content {
+    .ant-tooltip-inner {
+      min-height: unset;
+      min-width: unset;
+      padding: 2px 8px;
+      font-size: 13px;
+      background-color: #fff;
+      color: #79809a;
+      border: 1px solid #dedede;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+    }
+  }
+}
+
+.u-text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.u-text-ellipsis-multiline {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box !important;
+  -webkit-line-clamp: var(--count);
+  -webkit-box-orient: vertical;
+}

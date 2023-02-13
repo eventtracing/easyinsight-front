@@ -1,0 +1,16 @@
+cache:
+  untracked: true
+  paths:
+    - node_modules/
+
+stages:
+  - install
+  - lint
+
+install:
+  stage: install
+  script: yarn
+
+lint:
+  stage: lint
+  script: yarn lint
