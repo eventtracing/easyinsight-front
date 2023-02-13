@@ -52,7 +52,7 @@
 
 ## Init Environment
 
-You can install `nvm` to manage different version node, and then install `yarn`.
+可以下载并安装 `nvm` 来管理不同版本的 `node`，然后下载并安装 `yarn`.
 
 ```bash
 # install nvm
