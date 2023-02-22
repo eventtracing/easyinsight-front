@@ -1,4 +1,4 @@
-# easyinsight-web
+# easyinsight-front
 
 曙光 Easyinsight 平台 web 项目
 
