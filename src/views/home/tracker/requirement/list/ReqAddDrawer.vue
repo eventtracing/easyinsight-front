@@ -86,7 +86,7 @@
           ref="reqTask"
         />
       </a-form-item>
-      <div class="c-requirement__overmind" v-if="!isCustome">
+      <div class="c-requirement__researchManageUrl" v-if="!isCustome">
         <a-form-item label="来源需求状态">
           {{ sourceMap[formState.sourceStatus] }}
         </a-form-item>

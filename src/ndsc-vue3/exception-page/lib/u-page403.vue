@@ -49,7 +49,10 @@ export default defineComponent({
   methods: {
     async fetchAppManagers() {
       const appId = localStorage.getItem("appId");
-      const res = await getAppManagers(appId);
+      const res =
+        Number(appId) > 0
+          ? await getAppManagers(appId)
+          : await Promise.resolve([]);
 
       this.managerList = res || [];
     },

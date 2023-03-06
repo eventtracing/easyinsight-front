@@ -138,9 +138,6 @@
         </template>
       </div>
     </template>
-    <template #taskName="{ record }">
-      <a @click="() => jumpToOvermind(record, 2)">{{ record.taskName }}</a>
-    </template>
     <template #terminal="{ record }">
       <a v-if="record.terminalVersionLink" @click="jump(record)">{{
         record.terminalVersion
@@ -162,7 +159,6 @@ import {
   backTaskData,
   getTestList,
   backTask,
-  jumpToOverMind,
 } from "@/services/requirement.service";
 import { TablePagination, TableColumn } from "@/types/table.type";
 import {
@@ -471,11 +467,6 @@ export default defineComponent({
           id: this.requirement.id,
         });
       }
-    },
-    jumpToOvermind(record, type) {
-      jumpToOverMind(record.id, type).then((res) => {
-        res?.url && window.open(res.url);
-      });
     },
     jumpToRecord(record, result) {
       const { id } = record;

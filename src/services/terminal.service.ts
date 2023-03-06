@@ -6,10 +6,6 @@ import {
   NewTerminalReq,
 } from "@/types/terminal.type";
 
-export async function getOvermindUrl(reqId: number) {
-  return request.get(`/eis/reqDesign/source-url/get?reqId=${reqId}`);
-}
-
 export async function getTerminalList(
   data: GetTerminalListReq
 ): Promise<PaginationList<TerminalSimpleDto>> {

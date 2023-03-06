@@ -1,10 +1,10 @@
 const DOMAIN = {
   // 开发环境域名
-  dev: "",
+  dev: "localhost",
   // 测试环境域名
-  test: "",
+  test: "localhost",
   // 线上环境域名
-  online: "",
+  online: "localhost",
 };
 
 module.exports = { DOMAIN };

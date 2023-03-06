@@ -19,7 +19,6 @@ export interface AppDto {
 export interface BizConfigDto {
   bdmsUrl: string; // mammaut url，用于获取导航栏
   bdmsPermissionUrl: string; // mammut用户项目、权限申请页面url(用于403、nobiz页面)
-  overmindUrl: string;
   musicRoutingUrl: string; // 路由平台地址
 }
 

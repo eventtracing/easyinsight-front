@@ -180,10 +180,3 @@ export async function setSprint(
     params: { taskId, sprint },
   });
 }
-
-// 跳转到overMind
-export async function jumpToOverMind(taskId: number, type: number) {
-  return request.get("/eis/task/source-url/get", {
-    params: { taskId, type },
-  });
-}

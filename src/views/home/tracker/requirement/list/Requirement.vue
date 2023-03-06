@@ -105,7 +105,7 @@ import {
 } from "vue";
 import { PlusOutlined } from "@ant-design/icons-vue";
 import ReqAddDrawer from "./ReqAddDrawer.vue";
-import { getTerminalList, getOvermindUrl } from "@/services/terminal.service";
+import { getTerminalList } from "@/services/terminal.service";
 import { getAllUsers } from "@/services/app.service";
 import {
   removeRequirement,
@@ -385,14 +385,6 @@ function filterChange(key, value) {
     return;
   }
   conditions[key] = value;
-}
-// 跳转到overMind
-function jumpToOvermind(id) {
-  getOvermindUrl(id).then((res) => {
-    if (res?.url) {
-      window.open(res.url);
-    }
-  });
 }
 
 function rowClassName(record) {

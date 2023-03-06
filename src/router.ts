@@ -90,8 +90,7 @@ router.beforeEach(async ({ path, query }, from, next) => {
       },
     });
   }
-
-  const option = appList.find((v) => v.id.toString() === appId);
+  const option = appList?.find((v) => v.id.toString() === appId) || null;
 
   if (!option) {
     return next({
