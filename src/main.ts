@@ -32,88 +32,69 @@ loadJs("//at.alicdn.com/t/font_2900968_6k08wc5si1p.js");
    * 3. new Vue
    */
   try {
-    // const isLogin = await loginService.checkLoginIn();
+    const isLogin = await loginService.checkLoginIn();
 
-    // if (!isLogin) {
-    //   loginService.login();
-    //   return;
-    // }
+    if (!isLogin) {
+      loginService.login();
+      return;
+    }
 
     // 第一次进入页面获取产品列表以及确认当前所在产品
-    // const id = getQueryString("appId", window.location.href);
+    const id = getQueryString("appId", window.location.href);
 
-    // await store.dispatch("getAppList", { appId: id });
+    await store.dispatch("getAppList", { appId: id });
 
-    // const { email } = store.state.user;
+    const { email } = store.state.user;
 
-    // await store.dispatch("getObjectType");
+    await store.dispatch("getObjectType");
 
-    // getAuthorMenu(email).then(async (menuLists) => {
-    //   store.commit("setMenuLists", menuLists);
+    getAuthorMenu(email).then(async (menuLists) => {
+      store.commit("setMenuLists", menuLists);
 
-    //   const { default: router } = await import("./router");
+      const { default: router } = await import("./router");
 
-    //   function getFlatArray(menu) {
-    //     return menu.reduce((prev, next) => {
-    //       prev.push(next);
-    //       prev.push(...getFlatArray(next.children || []));
-    //       return prev;
-    //     }, []);
-    //   }
+      function getFlatArray(menu) {
+        return menu.reduce((prev, next) => {
+          prev.push(next);
+          prev.push(...getFlatArray(next.children || []));
+          return prev;
+        }, []);
+      }
 
-    //   const featureAuth = getFlatArray(menuLists).filter(
-    //     (v) => v.menuType === 1
-    //   );
+      const featureAuth = getFlatArray(menuLists).filter(
+        (v) => v.menuType === 1
+      );
 
-    //   app = createApp(App).use(router).use(store);
-    //   register(app);
+      app = createApp(App).use(router).use(store);
+      register(app);
 
-    //   app.directive("auth", {
-    //     mounted(el, binding, vnode) {
-    //       const { value } = binding;
+      app.directive("auth", {
+        mounted(el, binding, vnode) {
+          const { value } = binding;
 
-    //       if (featureAuth.every((feat) => feat.code !== value)) {
-    //         const { el: elm } = vnode;
-    //         elm.classList.add("m-text--disabled");
-    //         (vnode.props || (vnode.props = {})).disabled = true;
-    //       }
-    //     },
-    //   });
-    //   app.mixin({
-    //     methods: {
-    //       checkAuth(value: number[]) {
-    //         value = Array.isArray(value) ? value : [value]; // 校验是否是通过该权限
-    //         return featureAuth.every((feat) => !value.includes(feat.code));
-    //       },
-    //     },
-    //   });
+          if (featureAuth.every((feat) => feat.code !== value)) {
+            const { el: elm } = vnode;
+            elm.classList.add("m-text--disabled");
+            (vnode.props || (vnode.props = {})).disabled = true;
+          }
+        },
+      });
+      app.mixin({
+        methods: {
+          checkAuth(value: number[]) {
+            value = Array.isArray(value) ? value : [value]; // 校验是否是通过该权限
+            return featureAuth.every((feat) => !value.includes(feat.code));
+          },
+        },
+      });
 
-    //   app.config.globalProperties.$get = get;
-    //   app.mixin(mixin);
+      app.config.globalProperties.$get = get;
+      app.mixin(mixin);
 
-    //   router.isReady().then(() => {
-    //     app.mount("#app");
-    //   });
-    // });
-    const { default: router } = await import("./router");
-    const app = createApp(App).use(router).use(store);
-    register(app);
-
-    app.directive("auth", {
-      mounted(el, binding, vnode) {
-        const { value } = binding;
-
-        // if (featureAuth.every((feat) => feat.code !== value)) {
-        //   const { el: elm } = vnode;
-        //   elm.classList.add("m-text--disabled");
-        //   (vnode.props || (vnode.props = {})).disabled = true;
-        // }
-      },
+      router.isReady().then(() => {
+        app.mount("#app");
+      });
     });
-
-    app.config.globalProperties.$get = get;
-    app.mixin(mixin);
-    app.mount("#app");
   } catch (err) {
     message.error(err?.message || err);
   }

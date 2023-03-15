@@ -69,6 +69,8 @@ npm install -g yarn
 
 本地进行开发时，需要先配置 env.js 文件内的 DEV_DOMAIN 域名映射
 
+> 注意，必须保证EasyInsight-Server已经启动接口并可访问。如果是以域名形式访问，请补齐protocol，否则会无法访问接口。
+
 ## How to start
 
 ``` bash
