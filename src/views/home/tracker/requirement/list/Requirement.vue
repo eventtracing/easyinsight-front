@@ -120,6 +120,7 @@ import { message, Modal } from "ant-design-vue";
 import RequirementGroup from "./RequirementGroup.vue";
 import RequirementGroupList from "./RequirementGroupList.vue";
 import moment from "moment";
+import Bus from "@/bus";
 
 import type { Column } from "@/types/table.type";
 import type {
@@ -136,6 +137,8 @@ const creators = shallowReactive([]); // 创建人
 const verifiers = markRaw([]); // 数据验证人
 const formRef = ref<any>(); // 新增需求组的表单ref
 const loading = ref<boolean>(false); // 需求组列表加载态
+const isInitGetPool = ref<boolean>(false);
+
 const transformDataOwners = computed(() =>
   dataOwners.map((v) => ({
     key: v.value,
@@ -334,6 +337,10 @@ function sync(sorter?) {
     .then((res) => {
       list.length = 0;
       list.push(...res);
+      if (!isInitGetPool.value) {
+        Bus.$emit("getPoolGroupList", res);
+      }
+      isInitGetPool.value = true;
     })
     .finally(() => {
       loading.value = false;
