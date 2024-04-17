@@ -59,6 +59,7 @@ import { TagAggreDto } from "@/types/common.type";
 import type { FilterDto } from "@/types/app.type";
 import { SourceMap } from "@/types/requirement.type";
 import { getRequirementGroup } from "@/services/requirement.service";
+import Bus from '@/bus'
 export default defineComponent({
   name: "RequirementFilter",
   props: {
@@ -129,26 +130,26 @@ export default defineComponent({
 
       this.$emit("filterChange", key, v);
     },
-  },
-  mounted() {
-    getRequirementGroup({ order: "desc" }, undefined).then((res) => {
-      const reqPoolList = res?.map((ele) => ({
+    getOptions(val) {
+      const reqPoolList = val?.map((ele) => ({
         value: `${ele.name}(${ele.id})`,
-        key: ele.id,
-      }));
+        key: ele.id
+      }))
+      const reqList = val
+        ?.reduce((prev, cur) => {
+          return [...prev, ...cur.requirements]
+        }, [])
+      this.reqPoolList.length = 0
+      this.reqPoolList.push(...reqPoolList)
+      this.reqList.length = 0
+      this.reqList.push(...reqList)
+    }
 
-      const reqList = res
-        ?.reduce((prev, cur) => [...prev, ...cur.requirements], [])
-        .map((item) => ({
-          value: `${item.name}(${item.issueKey})`,
-          key: item.id,
-        }));
-
-      this.reqPoolList.length = 0;
-      this.reqPoolList.push(...reqPoolList);
-      this.reqList.length = 0;
-      this.reqList.push(...reqList);
-    });
+  },
+  created() {
+    Bus.$on('getPoolGroupList', (val) => {
+      this.getOptions(val)
+    })
   },
 });
 </script>

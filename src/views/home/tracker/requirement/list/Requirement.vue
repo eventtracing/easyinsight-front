@@ -127,7 +127,7 @@ import type {
   RequirementGroupParams,
 } from "@/types/requirement.type";
 import { SourceMap } from "@/types/requirement.type";
-
+import Bus from '@/bus'
 const instance = getCurrentInstance(); // 当前组件实例
 const search = ref<string>();
 const terminalLists = markRaw([]); // 终端列表
@@ -142,7 +142,7 @@ const transformDataOwners = computed(() =>
     value: v.label,
   }))
 );
-
+const isInitGetPool = ref<boolean>(false)
 const reqGroupData = reactive<
   Partial<{ name: string; owners: string[]; desc: string }>
 >({
@@ -334,6 +334,11 @@ function sync(sorter?) {
     .then((res) => {
       list.length = 0;
       list.push(...res);
+      if (!isInitGetPool.value) {
+        Bus.$emit('getPoolGroupList', res)
+      }
+      isInitGetPool.value = true
+
     })
     .finally(() => {
       loading.value = false;
