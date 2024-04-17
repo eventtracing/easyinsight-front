@@ -1,0 +1,68 @@
+@keyframes slide-top {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slide-in-bottom {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 50%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes opacity {
+  from {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    opacity: 0;
+  }
+  to {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+.initAnimation(@option, @time: .5) {
+  @key: ~'@{option}';
+  .@{key}-enter-active {
+    animation: @key ~'@{time}s' ease-in-out;
+  }
+  .@{key}-leave-active {
+    animation: @key ~'@{time}s' ease-in-out reverse;
+  }
+}
+
+.initAnimation(slide-top);
+.initAnimation(slide-in-bottom);
+.initAnimation(opacity, .15);
+
+.opacitys-enter-active {
+  animation: opacitys .3s ease-in-out;
+}
+.opacitys-leave-active {
+  animation: opacitys .3s ease-in-out reverse;
+}
+
+@keyframes opacitys {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

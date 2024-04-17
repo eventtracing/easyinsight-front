@@ -1,0 +1,15 @@
+.fill {
+  height: 100%;
+}
+
+.clearfix {
+  zoom: 1;
+  &::before,
+  &::after {
+    display: table;
+    content: '';
+  }
+  &::after {
+    clear: both;
+  }
+}

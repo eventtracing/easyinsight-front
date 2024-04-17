@@ -1,0 +1,48 @@
+{
+  "name": "@/ndsc-vue3/theme",
+  "version": "1.0.0-1",
+  "description": "主题",
+  "main": "index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --open --mode development",
+    "build-only": "webpack --mode production",
+    "build": "yarn build-only  &&  yarn copy-vue && yarn copy-css",
+    "copy-vue": "node ./scripts/copyVue",
+    "copy-css": "node ./scripts/copyCSS"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chalk": "^4.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^5.1.3",
+    "cssnano": "^4.1.10",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "html-webpack-plugin": "^5.3.1",
+    "less": "^3.9.0",
+    "less-loader": "^6.0.0",
+    "mini-css-extract-plugin": "^1.3.9",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "progress-bar-webpack-plugin": "^2.1.0",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^5.1.1",
+    "webpack": "^5.26.3",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "ant-design-vue": "^1.7.4",
+    "fs": "^0.0.1-security",
+    "vue-property-decorator": "^9.1.2"
+  }
+}

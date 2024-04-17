@@ -1,0 +1,67 @@
+.u-drawer-wrapper.ant-drawer {
+  &.c-object__container {
+    .ant-drawer-main {
+      position: relative;
+      padding: 0 !important;
+      overflow: hidden !important;
+    }
+  }
+
+  .ant-drawer-wrapper-body {
+    display: flex;
+    flex-direction: column;
+
+    .ant-drawer-title {
+      margin-right: 24px; // 避免压盖 close icon
+    }
+
+    .ant-drawer-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-height: 0;
+      padding: 0 !important;
+
+      .ant-drawer-main {
+        flex: 1;
+        min-height: 0;
+        padding: 24px;
+        overflow-y: auto;
+      }
+
+      .ant-drawer-footer {
+        border-top: 1px solid rgb(233, 233, 233);
+        padding: 16px 24px;
+        background: rgb(255, 255, 255);
+        text-align: left;
+      }
+    }
+  }
+
+  &.ant-drawer-left {
+    .ant-drawer-footer {
+      text-align: right !important;
+    }
+  }
+
+  &.ant-drawer-bottom {
+    .ant-drawer-header {
+      padding: 10px 24px !important;
+
+      .ant-drawer-title {
+        margin-right: 0 !important;
+      }
+
+      .ant-drawer-close {
+        height: 44px !important;
+        line-height: 44px !important;
+      }
+    }
+  }
+}
+
+.u-drawer-wrapper.edit-diff-dialog .ant-drawer-wrapper-body .ant-drawer-body .ant-drawer-main {
+  padding-bottom: 0;
+  margin-bottom: 53px;
+  overflow: auto;
+}

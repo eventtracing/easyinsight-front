@@ -1,0 +1,13 @@
+.u-text-button {
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+  color: #103ffa;
+  &.disabled {
+    cursor: not-allowed;
+    color: #a9a9b8;
+  }
+  & + .u-text-button {
+    margin-left: 8px;
+  }
+}

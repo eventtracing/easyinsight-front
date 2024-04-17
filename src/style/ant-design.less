@@ -1,0 +1,95 @@
+.ant-form {
+  padding-left: 10px;
+  &.ant-form-horizontal .ant-form-item {
+    margin-bottom: 18px;
+  }
+  .ant-form-explain {
+    position: absolute;
+    font-size: 12px;
+  }
+
+  &.table-form {
+    padding-left: 0px;
+    &.ant-form-horizontal .ant-form-item {
+      margin-bottom: 0px;
+    }
+  }
+
+  &.normal-form {
+    padding-left: 0px;
+    &.ant-form-horizontal .ant-form-item-label {
+      margin-left: 0;
+      > label {
+        margin-left: 0;
+      }
+    }
+    &.ant-form-horizontal .ant-form-item {
+      margin-bottom: 12px;
+    }
+  }
+}
+
+.ant-form.small-12 {
+  .ant-form-item {
+    margin-bottom: 12px;
+  }
+}
+
+.ant-form.small-0 {
+  .ant-form-item {
+    margin-bottom: 0px;
+  }
+}
+
+.ant-alert-warning {
+  background: rgba(255, 175, 15, 0.1);
+  border: 1px solid #FFAF0F !important;
+  .ant-alert-message {
+    color: @text-color;
+    font-size: 12px;
+  }
+}
+
+// .ant-table {
+//   word-break: break-word;
+// }
+
+.ant-table-small {
+  .ant-table-thead > tr > th {
+    background: #f1f2f4 !important;
+    color: #102048;
+  }
+
+  > .ant-table-content > .ant-table-body {
+    margin: 0 !important
+  }
+}
+
+// flex Tab 样式
+.ant-tabs.flex-tab {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: unset;
+  .ant-tabs-content {
+    flex: 1;
+    min-height: 0;
+    .ant-tabs-tabpane {
+      height: 100%;
+      overflow-y: auto;
+      &.ant-tabs-tabpane-inactive {
+        height: 0;
+      }
+    }
+  }
+}
+
+.table-row-align-middle {
+  table tr > td {
+    vertical-align: middle;
+  }
+}
+
+.ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+  line-height: 2;
+}
